@@ -1,0 +1,12 @@
+{
+  "name": "rohana",
+  "version": "1.0.0",
+  "description": "download fragments and browse at the local",
+  "main": "index.js",
+  "repository": "https://github.com/kongasa/rohana.git",
+  "author": "kongasa",
+  "license": "GPLv3.0",
+  "devDependencies": {
+    "electron": "^18.2.3"
+  }
+}

@@ -6,13 +6,13 @@ module.exports = {
   },
   extends: [
     'eslint:recommended',
-    // 'plugin:@typescript-eslint/recommended'
+    'plugin:@typescript-eslint/recommended'
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 2020,
   },
-  // plugins: ['@typescript-eslint'],
+  plugins: ['@typescript-eslint'],
   rules: {
     'no-console': 'warn',
     'no-debugger': 'warn',

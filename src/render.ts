@@ -1,12 +1,9 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const ipc = require('electron').ipcRenderer
-
 const selectDirBtn = document.getElementById('open-button')
 
 selectDirBtn?.addEventListener('click', () => {
-  ipc.send('open-file-dialog')
+  window.electronAPI.openFileDialog()
 })
 
-// ipc.on('selected-directory', function (e, path) {
+// window.electronAPI.getSelectedFiles( function (e, path) {
 //   console.log(path);
 // })

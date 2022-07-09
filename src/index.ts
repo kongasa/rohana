@@ -1,4 +1,4 @@
-import { app, BrowserWindow, Menu } from 'electron';
+import { app, BrowserWindow, Menu, ipcMain as ipc, dialog } from 'electron';
 import path from 'path';
 
 const createWindow = () => {
@@ -7,12 +7,21 @@ const createWindow = () => {
     width: 1200,
     height: 900,
     webPreferences: {
-      preload: path.join(__dirname, 'preload.js'),
+      preload: path.join(__dirname, '/preload.js'),
+      nodeIntegration: true,
+      contextIsolation: false,
     },
   });
 
   win.loadFile(path.join(__dirname, './html/index.html'));
   win.webContents.openDevTools();
+  ipc.on('open-file-dialog', function (event) {
+    dialog
+      .showOpenDialog(win, { properties: ['openDirectory'] })
+      .then(value => {
+        if (value) event.sender.send('selected-directory', value);
+      });
+  });
 };
 
 app.whenReady().then(() => {

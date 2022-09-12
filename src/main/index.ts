@@ -8,13 +8,13 @@ const createWindow = () => {
     width: 1200,
     height: 900,
     webPreferences: {
-      preload: path.join(__dirname, '/preload.js'),
+      preload: path.join(__dirname, '../preload/preload.js'),
       nodeIntegration: false,
       contextIsolation: true,
     },
   });
 
-  win.loadFile(path.join(__dirname, './html/index.html'));
+  win.loadFile(path.join(__dirname, '../html/index.html'));
   win.webContents.openDevTools();
   ipc.on('open-file-dialog', (event) => {
     dialog

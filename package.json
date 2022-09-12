@@ -23,6 +23,6 @@
   "scripts": {
     "build": "tsc",
     "copyhtml": "node ./script/copyhtml.js",
-    "start": "yarn build && yarn copyhtml && electron ./dist"
+    "start": "yarn build && yarn copyhtml && electron ./dist/main"
   }
 }
